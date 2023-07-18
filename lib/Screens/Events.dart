@@ -7,7 +7,7 @@ import 'package:newuisit/supportings/supporting.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:newuisit/supportings/supporting.dart';
 
-
+// TODO: Adding events logic is pending
 class CalendarScreen extends StatefulWidget {
   @override
   _CalendarScreenState createState() => _CalendarScreenState();
@@ -60,13 +60,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       fontSize: 20,
                       fontWeight: FontWeight.bold))),
           ),
-              Eventcards(),
-              Eventcards(),
-              Eventcards(),
-              Eventcards(),
-              Eventcards(),
-              Eventcards(),
-              Eventcards(),
+              Eventcards(title: 'Guru Purinama'),
+              Eventcards(title: 'Holi'),
+              Eventcards(title: 'Eid Milad'),
+              Eventcards(title: 'Moharam'),
+              Eventcards(title: 'Christmas'),
+              Eventcards(title: 'Good Friday'),
         ],
       ),
     );

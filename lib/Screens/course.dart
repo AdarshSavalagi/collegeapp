@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../supportings/supporting.dart';
 
+// TODO: onclick next page is pending
+
 class coursepage extends StatefulWidget {
   const coursepage({Key? key}) : super(key: key);
 

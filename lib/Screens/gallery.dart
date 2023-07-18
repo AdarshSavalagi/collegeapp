@@ -5,6 +5,8 @@ import 'package:image_gallery_view/image_gallery_view.dart';
 import 'package:newuisit/Screens/temp.dart';
 import 'package:newuisit/supportings/supporting.dart';
 
+// TODO: Gallery page is pending
+
 class galleryScreen extends StatefulWidget {
   const galleryScreen({Key? key}) : super(key: key);
 

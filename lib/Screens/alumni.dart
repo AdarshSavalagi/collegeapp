@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newuisit/supportings/supporting.dart';
-
+// TODO: Alumni page is pending
 class AlumniScreen extends StatefulWidget {
   const AlumniScreen({Key? key}) : super(key: key);
 

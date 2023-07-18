@@ -12,13 +12,13 @@ class AboutScreen extends StatefulWidget {
   @override
   State<AboutScreen> createState() => _AboutScreenState();
 }
-
+// TODO: About Srinivas group page is pending: https://www.sitmng.ac.in/SIT/About/About-Srinivas-Group
 class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      appBar: const APPBAR(title: "About"),
+      appBar: const APPBAR(title: "About Us"),
 
     );
   }

@@ -9,7 +9,7 @@ class privacyscreen extends StatefulWidget {
   @override
   State<privacyscreen> createState() => _mapScreenState();
 }
-
+// TODO: update privacy and policy using website: https://www.freeprivacypolicy.com/live/c5161324-d950-4a25-8ad6-8fb118d32dbe
 class _mapScreenState extends State<privacyscreen> {
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,8 @@ class _mapScreenState extends State<privacyscreen> {
                     ), ),
 
                   TextSpan(
-                    text:'\n\nInterpretation and Definitions:',
+                    text:'\n\nInterpretation,'
+                        ' Definitions:',
                     style: GoogleFonts.getFont(
                       'Varela Round',
                       textStyle: const TextStyle(

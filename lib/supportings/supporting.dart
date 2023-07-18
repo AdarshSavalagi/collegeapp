@@ -50,7 +50,7 @@ class cardsample extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(9),
+              padding: const EdgeInsets.all(6),
               child: Icon(
                 icon,
                 color: const Color(0xFF24245E),
@@ -77,8 +77,8 @@ class cardsample extends StatelessWidget {
 }
 
 class Eventcards extends StatefulWidget {
-  const Eventcards({Key? key}) : super(key: key);
-
+  const Eventcards({Key? key, required this.title}) : super(key: key);
+final String title;
   @override
   State<Eventcards> createState() => _EventcardsState();
 }
@@ -106,7 +106,7 @@ class _EventcardsState extends State<Eventcards> {
                 // Add an image widget to display an image
 
                 Text(
-                  "Holiday Notice",
+                  widget.title,
                   textAlign: TextAlign.justify,
                   style: GoogleFonts.getFont('Varela Round',
                       textStyle: const TextStyle(
@@ -423,9 +423,8 @@ class _NewsCardState extends State<NewsCard> {
                   children:   [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration:BoxDecoration(
-                            border: Border.all(), borderRadius: BorderRadius.circular(5)),
+                      child: ClipRRect(
+                       borderRadius: BorderRadius.circular(9),
                         child: Image(image: CachedNetworkImageProvider(
                           "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
                           errorListener: () => const Icon(Icons.error),

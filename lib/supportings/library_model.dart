@@ -272,10 +272,7 @@ Padding(
                   'Could not launch $url');
             }
           },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text( element.key),
-        ),
+        child: Eventcards(title:element.key),
         )
         ]],
           );

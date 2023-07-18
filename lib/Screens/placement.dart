@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// TODO: placement screen is pending
+
 class placementScreen extends StatefulWidget {
   const placementScreen({Key? key}) : super(key: key);
 

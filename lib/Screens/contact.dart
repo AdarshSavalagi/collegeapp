@@ -4,6 +4,13 @@ import 'package:newuisit/Screens/feedback.dart';
 import 'package:newuisit/supportings/supporting.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// TODO: social links pending
+
+
+
+
+
+
 class contactScreen extends StatefulWidget {
   const contactScreen({Key? key}) : super(key: key);
 
