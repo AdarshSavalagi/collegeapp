@@ -46,7 +46,11 @@ dependencies:
   bulleted_list: ^0.0.1+0.1a
   html:
   http: ^1.0.0
+  cached_network_image: ^3.2.3
 
+
+  json_serializable: ^6.7.1
+  google_maps_flutter: ^2.3.1
 
 
 dev_dependencies:

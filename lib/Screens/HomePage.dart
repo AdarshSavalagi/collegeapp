@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                 child: SizedBox(
                   width: 250.0,
                   child: SizedBox(
-                    height: 60,
+                    height: 69,
                     child: DefaultTextStyle(
                       style: GoogleFonts.getFont('Varela Round',
                           textStyle: const TextStyle(

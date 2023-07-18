@@ -38,7 +38,7 @@ class _AboutScreenState extends State<AboutScreen> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: Text(
-                    "1.0.101",
+                    "1.0.001",
                     style: GoogleFonts.getFont(
                       'Varela Round',
                       textStyle: const TextStyle(fontSize: 15),
