@@ -2,12 +2,15 @@ import 'dart:ui';
 import 'package:newuisit/Screens/About.dart';
 import 'package:newuisit/Screens/Departments.dart';
 import 'package:newuisit/Screens/Events.dart';
+import 'package:newuisit/Screens/alumni.dart';
+import 'package:newuisit/Screens/community.dart';
 import 'package:newuisit/Screens/course.dart';
 import 'package:newuisit/Screens/gallery.dart';
 import 'package:newuisit/Screens/joinus.dart';
 import 'package:newuisit/Screens/library.dart';
 import 'package:newuisit/Screens/maps.dart';
 import 'package:newuisit/Screens/placement.dart';
+import 'package:newuisit/Screens/sports.dart';
 import 'package:newuisit/supportings/supporting.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -69,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 child: SizedBox(
                   width: 250.0,
                   child: SizedBox(
-                    height: 60,
+                    height: 69,
                     child: DefaultTextStyle(
                       style: GoogleFonts.getFont('Varela Round',
                           textStyle: const TextStyle(
@@ -281,16 +284,6 @@ class _HomePageState extends State<HomePage> {
                                   title: "Courses offered",
                                   icon: Icons.school)),
                           GestureDetector(
-                              // onTap: () async {
-                              //   final url = Uri.parse(
-                              //       'https://goo.gl/maps/9ndjmro6whq1qvvU6');
-                              //   if (!await launchUrl(
-                              //     url,
-                              //     mode: LaunchMode.inAppWebView,
-                              //   )) {
-                              //     throw Exception('Could not launch $url');
-                              //   }
-                              // },
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -311,9 +304,48 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
+                                      builder: (context) => AlumniScreen()),
+                                );
+
+                              },
+                              child: cardsample(
+                                  title: "Alumni", icon: Icons.diversity_2)),
+                          GestureDetector(
+                              onTap: ()  {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SportsScreen()));
+                              },
+                              child: cardsample(
+                                  title: "Sports",
+                                  icon: Icons.sports_tennis_sharp)),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                      const AboutScreen()),
+                                );
+                              },
+                              child: cardsample(
+                                  title: "About Srinivas Group", icon: Icons.info)),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                              onTap: ()  {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
                                       builder: (context) => const contactScreen()),
                                 );
-                                
+
                               },
                               child: cardsample(
                                   title: "Contact us", icon: Icons.call)),
@@ -323,7 +355,7 @@ class _HomePageState extends State<HomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                        MyForm()));
+                                            MyForm()));
                               },
                               child: cardsample(
                                   title: "Become a Student",
@@ -334,13 +366,14 @@ class _HomePageState extends State<HomePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const AboutScreen()),
+                                      const CommunityScreen()),
                                 );
                               },
                               child: cardsample(
-                                  title: "About Us", icon: Icons.groups)),
+                                  title: "Community & legal", icon: Icons.groups)),
                         ],
                       ),
+
                     ]),
               )
             ],
