@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -230,12 +231,12 @@ class _HolidayCardState extends State<HolidayCard> {
 
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(
+                  child:  const Image(image: CachedNetworkImageProvider(
                     "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/16110133958662.56be291c46cdd.gif",
-                    height: 100,
-                    width: 100,
-                    fit: BoxFit.cover,
+                    maxHeight: 100,
+                    maxWidth: 100,
                   ),
+                  fit: BoxFit.cover,width: 100,height: 100,),
                 ),
                 // Add some spacing between the image and the text
                 Container(width: 20),
@@ -425,12 +426,12 @@ class _NewsCardState extends State<NewsCard> {
                       child: Container(
                         decoration:BoxDecoration(
                             border: Border.all(), borderRadius: BorderRadius.circular(5)),
-                        child: Image.network(
+                        child: Image(image: CachedNetworkImageProvider(
                           "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
-                          height: 200,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
+                          errorListener: () => const Icon(Icons.error),
                         ),
+                          width: double.infinity,
+                          fit: BoxFit.cover,),
                       ),
                     ),
                     Padding(
@@ -452,7 +453,7 @@ class _NewsCardState extends State<NewsCard> {
                     ),
 
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Text("Description: As an association activity of Department of Information Science & Engineering, under AISE a hands-on session was conducted on “STRING SIMILARITY-HAMMING & LEVENSHTEIN DISTANCE”. The hands-on session was about the introduction to String matching and how it was dealt in past and modern trend. String metrics are used heavily in information integration and are currently used in areas including fraud detection, fingerprint analysis, plagiarism detection, ontology merging, DNA analysis, RNA analysis, image analysis, evidence-based machine learning, database data deduplication, data mining, incremental search, data integration, malware detection, and semantic knowledge integrationBrief Introduction to Hamming distance with code was explained by Shrama Madival and Levenshtein Distance was explained with the various applications like Spell Checkers, Correction Systems for optical character recognition, Software to assist natural language, Translation memory by Jayashree K.R.This event was supported by Prof. Sudarshan K, Head of the department, ISE . The Hands-on session was conducted by Students of 2nd Year ISE Jayashree K.R, Shrama Madival under the guidance of Prof.Sowmya, Assistant professor, ISE organised the event on 07/07/2023. All students of 4th SEM ISE took active participation in the event.",style: GoogleFonts.getFont('Varela Round',
                           textStyle: TextStyle(
                             fontSize: 16,
@@ -477,13 +478,15 @@ class _NewsCardState extends State<NewsCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            // Display an image at the top of the card that fills the width of the card and has a height of 160 pixels
-            Image.network(
+
+
+            Image(image: CachedNetworkImageProvider(
               "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
-              height: 140,
-              width: double.infinity,
-              fit: BoxFit.cover,
+              errorListener: () => const Icon(Icons.error),
             ),
+              width: double.infinity,
+              fit: BoxFit.cover,),
+
             // Add a container with padding that contains the card's title, text, and buttons
             Container(
               padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
@@ -648,24 +651,28 @@ class _gallerycardState extends State<gallerycard> {
                 child:  Container(
                   decoration:BoxDecoration(
                       border: Border.all(), borderRadius: BorderRadius.circular(5)),
-                  child: Image.network(
-                    "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
-
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ), ));
+                  child: Image(image: CachedNetworkImageProvider(
+            "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
+                    errorListener: () => const Icon(Icons.error),
+            ),
+              width: double.infinity,
+              fit: BoxFit.cover,),
+              )
+              , );
             });},
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration:BoxDecoration(
               border: Border.all(), borderRadius: BorderRadius.circular(5)),
-          child: Image.network(
+          child:Image(image: CachedNetworkImageProvider(
             "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
-            height: 200,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ), ),
+            errorListener: () => const Icon(Icons.error),
+          ),
+            width: MediaQuery.of(context).size.width/3-32,
+            height: MediaQuery.of(context).size.width/3-32,
+            fit: BoxFit.cover,),
+        ),
       ),
     );
   }

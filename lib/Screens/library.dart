@@ -16,14 +16,54 @@ class _mapScreenState extends State<libraryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
         appBar: APPBAR(title: "Library"),
         body: ListView(
           children: [
-            Column(
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text('E-Books',  style: GoogleFonts.getFont(
+                'Varela Round',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),),
+            ),
+            Row(
               children: [
-                // LibCard(),
+                LibCard(libraryModel: objs[0],),
+                LibCard(libraryModel: objs[1],),
+                LibCard(libraryModel: objs[2],),
               ],
-            )
+            ),
+            Row(
+              children: [
+                LibCard(libraryModel: objs[3],),
+                LibCard(libraryModel: objs[4],),
+              ],
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text('Question Papers',  style: GoogleFonts.getFont(
+                'Varela Round',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),),
+            ),
+            Row(
+              children: [
+                    LibCard(libraryModel: objs[5],),
+                    LibCard(libraryModel: objs[6],),
+                    LibCard(libraryModel: objs[7],),
+              ],
+            ),
+            Row(
+              children: [
+                LibCard(libraryModel: objs[8],),
+                LibCard(libraryModel: objs[9],),
+              ],
+            ),
+
           ],
         ),
     );
