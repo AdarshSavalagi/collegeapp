@@ -6,11 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 // TODO: social links pending
 
-
-
-
-
-
 class contactScreen extends StatefulWidget {
   const contactScreen({Key? key}) : super(key: key);
 
@@ -225,6 +220,30 @@ class _mapScreenState extends State<contactScreen> {
                 ),
               ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Connect with Us",
+              style: GoogleFonts.getFont('Varela Round',
+                  textStyle: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w900)),
+            ),
+          ),
+          contactcards(
+            title: 'Facebook',
+            description: 'connect with us on Facebook',
+            icon: Icons.facebook,
+          ),
+          contactcards(
+            title: 'Youtube',
+            description: 'connect with us on Youtube',
+            icon: Icons.youtube_searched_for_sharp,
+          ),
+          contactcards(
+            title: 'Instagram',
+            description: 'connect with us on Instagram',
+            icon: Icons.youtube_searched_for_sharp,
           ),
         ],
       ),

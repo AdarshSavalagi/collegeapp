@@ -15,20 +15,17 @@ class galleryScreen extends StatefulWidget {
 }
 
 class _galleryScreenState extends State<galleryScreen> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: APPBAR(title: "Gallery"),
+      appBar: APPBAR(title: "Gallery"),
       body: ListView(
         children: [
+          BlockOdd(),
           BlockEven(),
-          BlockEven(),
+          BlockOdd(),
           BlockEven(),
         ],
-
       ),
     );
   }
