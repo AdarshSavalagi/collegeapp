@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                                           const noticesScreen()));
                             },
                             child:
-                                cardsample(title: "Notices", icon: Icons.email),
+                                CARD(title: "Notices", icon: Icons.email),
                           ),
                           GestureDetector(
                             onTap: () {
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                                         const HolidayScreen()),
                               );
                             },
-                            child: cardsample(
+                            child: CARD(
                                 title: "Holidays",
                                 icon: Icons.beach_access_rounded),
                           ),
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                                   throw Exception('Could not launch $url');
                                 }
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "VTU Results",
                                   icon: Icons.query_stats)),
                         ],
@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => const NewsScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "News", icon: Icons.article)),
                           GestureDetector(
                               onTap: () {
@@ -201,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => CalendarScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Events", icon: Icons.event)),
                           GestureDetector(
                               onTap: () {
@@ -212,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                                           const placementScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Placements", icon: Icons.laptop)),
                         ],
                       ),
@@ -228,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => const BusTiming()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Bus timings",
                                   icon: Icons.departure_board)),
                           GestureDetector(
@@ -240,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                                 );
                                 
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Library", icon: Icons.menu_book)),
                           GestureDetector(
                               onTap: () {
@@ -251,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                                           const DepartmentScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Department", icon: Icons.hub)),
                         ],
                       ),
@@ -268,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                                           const galleryScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Gallery",
                                   icon: Icons.photo_album_outlined)),
                           GestureDetector(
@@ -280,7 +280,7 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => const coursepage()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Courses offered",
                                   icon: Icons.school)),
                           GestureDetector(
@@ -291,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => const mapScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Maps", icon: Icons.location_on)),
                         ],
                       ),
@@ -308,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                                 );
 
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Alumni", icon: Icons.diversity_2)),
                           GestureDetector(
                               onTap: ()  {
@@ -318,7 +318,7 @@ class _HomePageState extends State<HomePage> {
                                         builder: (context) =>
                                             const SportsScreen()));
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Sports",
                                   icon: Icons.sports_tennis_sharp)),
                           GestureDetector(
@@ -330,7 +330,7 @@ class _HomePageState extends State<HomePage> {
                                       const AboutScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "About Srinivas Group", icon: Icons.info)),
                         ],
                       ),
@@ -347,7 +347,7 @@ class _HomePageState extends State<HomePage> {
                                 );
 
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Contact us", icon: Icons.call)),
                           GestureDetector(
                               onTap: ()  {
@@ -357,7 +357,7 @@ class _HomePageState extends State<HomePage> {
                                         builder: (context) =>
                                             MyForm()));
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Become a Student",
                                   icon: Icons.join_full_rounded)),
                           GestureDetector(
@@ -369,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                                       const CommunityScreen()),
                                 );
                               },
-                              child: cardsample(
+                              child: CARD(
                                   title: "Community & legal", icon: Icons.groups)),
                         ],
                       ),

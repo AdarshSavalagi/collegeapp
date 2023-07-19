@@ -3,8 +3,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newuisit/Screens/departments/notices.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+
+import '../Screens/departments/Faculties.dart';
 
 class APPBAR extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -48,25 +51,42 @@ class NewCard extends StatelessWidget {
               body: GridView.count(crossAxisCount: 2, children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: cardsample(title: 'Overview', icon: Icons.pageview),
+                  child: CARD(title: 'Overview of the Course', icon: Icons.pageview),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: cardsample(
+                  child: CARD(
                       title: 'Associations', icon: Icons.workspace_premium),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child:
-                      cardsample(title: 'Notices', icon: Icons.email_outlined),
+                      GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const DepartmentNoticesScreen()),
+                            );
+                          },
+                          child: CARD(title: 'Notices', icon: Icons.email_outlined)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: cardsample(title: 'Projects', icon: Icons.work),
+                  child: CARD(title: 'Projects', icon: Icons.work),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: cardsample(title: 'Faculties', icon: Icons.group),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DepartmentFacultyScreen()),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CARD(title: 'Faculties', icon: Icons.group),
+                  ),
                 ),
               ]),
             );
@@ -115,8 +135,8 @@ class NewCard extends StatelessWidget {
   }
 }
 
-class cardsample extends StatelessWidget {
-  cardsample({super.key, required this.title, required this.icon});
+class CARD extends StatelessWidget {
+  CARD({super.key, required this.title, required this.icon});
   final String title;
   final IconData icon;
   @override
@@ -136,7 +156,7 @@ class cardsample extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(6),
-              child: Icon(
+              child:  FaIcon(
                 icon,
                 color: const Color(0xFF24245E),
                 size: 25,
@@ -661,8 +681,8 @@ MaterialColor createMaterialColor(Color color) {
   return MaterialColor(color.value, swatch);
 }
 
-class contactcards extends StatelessWidget {
-  const contactcards(
+class ContactCard extends StatelessWidget {
+  const ContactCard(
       {super.key,
       required this.icon,
       required this.title,
@@ -683,7 +703,7 @@ class contactcards extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
+              child:  FaIcon(
                 icon,
                 size: 25,
               ),
@@ -719,7 +739,7 @@ class contactcards extends StatelessWidget {
               ],
             ),
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(4.0),
               child: Icon(Icons.arrow_forward_ios),
             ),
           ],
