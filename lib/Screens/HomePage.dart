@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:newuisit/Screens/About.dart';
-import 'package:newuisit/Screens/Departments.dart';
+import 'package:newuisit/Screens/departments/Departments.dart';
 import 'package:newuisit/Screens/Events.dart';
 import 'package:newuisit/Screens/alumni.dart';
 import 'package:newuisit/Screens/community.dart';

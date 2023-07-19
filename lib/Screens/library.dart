@@ -18,7 +18,7 @@ class _mapScreenState extends State<libraryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-        appBar: APPBAR(title: "Library"),
+        appBar: const APPBAR(title: "Library"),
         body: ListView(
           children: [
             Padding(

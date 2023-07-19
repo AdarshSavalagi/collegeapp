@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -28,6 +29,90 @@ class APPBAR extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class NewCard extends StatelessWidget {
+  const NewCard({super.key, required this.title, required this.icon});
+  final String title;
+  final IconData icon;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return Scaffold(
+              backgroundColor: Colors.grey[200],
+              appBar: APPBAR(title: title),
+              body: GridView.count(crossAxisCount: 2, children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: cardsample(title: 'Overview', icon: Icons.pageview),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: cardsample(
+                      title: 'Associations', icon: Icons.workspace_premium),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child:
+                      cardsample(title: 'Notices', icon: Icons.email_outlined),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: cardsample(title: 'Projects', icon: Icons.work),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: cardsample(title: 'Faculties', icon: Icons.group),
+                ),
+              ]),
+            );
+          }),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
+        width: MediaQuery.of(context).size.width / 3 - 4,
+        height: MediaQuery.of(context).size.width / 3 - 3,
+        margin: const EdgeInsets.only(bottom: 8),
+        child: Card(
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          color: Colors.grey[300],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(6),
+                child: FaIcon(
+                  icon,
+                  color: const Color(0xFF24245E),
+                  size: 25,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.getFont(
+                    'Varela Round',
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class cardsample extends StatelessWidget {
@@ -78,7 +163,7 @@ class cardsample extends StatelessWidget {
 
 class Eventcards extends StatefulWidget {
   const Eventcards({Key? key, required this.title}) : super(key: key);
-final String title;
+  final String title;
   @override
   State<Eventcards> createState() => _EventcardsState();
 }
@@ -231,12 +316,16 @@ class _HolidayCardState extends State<HolidayCard> {
 
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
-                  child:  const Image(image: CachedNetworkImageProvider(
-                    "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/16110133958662.56be291c46cdd.gif",
-                    maxHeight: 100,
-                    maxWidth: 100,
+                  child: const Image(
+                    image: CachedNetworkImageProvider(
+                      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/16110133958662.56be291c46cdd.gif",
+                      maxHeight: 100,
+                      maxWidth: 100,
+                    ),
+                    fit: BoxFit.cover,
+                    width: 100,
+                    height: 100,
                   ),
-                  fit: BoxFit.cover,width: 100,height: 100,),
                 ),
                 // Add some spacing between the image and the text
                 Container(width: 20),
@@ -402,70 +491,78 @@ class _NewsCardState extends State<NewsCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
 
-          showModalBottomSheet(
-            context: context,
-
-            isScrollControlled: true,
-            backgroundColor: Colors.white,
-            //elevates modal bottom screen
-            elevation: 10,
-            // gives rounded corner to modal bottom screen
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            builder: (BuildContext context) {
-              // UDE : SizedBox instead of Container for whitespaces
-              return FractionallySizedBox(
-                heightFactor: 0.85,
-                child: ListView(
-                  children:   [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ClipRRect(
-                       borderRadius: BorderRadius.circular(9),
-                        child: Image(image: CachedNetworkImageProvider(
+          isScrollControlled: true,
+          backgroundColor: Colors.white,
+          //elevates modal bottom screen
+          elevation: 10,
+          // gives rounded corner to modal bottom screen
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          builder: (BuildContext context) {
+            // UDE : SizedBox instead of Container for whitespaces
+            return FractionallySizedBox(
+              heightFactor: 0.85,
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(9),
+                      child: Image(
+                        image: CachedNetworkImageProvider(
                           "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
                           errorListener: () => const Icon(Icons.error),
                         ),
-                          width: double.infinity,
-                          fit: BoxFit.cover,),
+                        width: double.infinity,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("This is title",style: GoogleFonts.getFont('Varela Round',
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "This is title",
+                      style: GoogleFonts.getFont('Varela Round',
                           textStyle: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                          )),),
+                          )),
                     ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0,bottom: 8.0),
-                      child: Text("Date: 06/06/2003",style: GoogleFonts.getFont('Varela Round',
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
+                    child: Text(
+                      "Date: 06/06/2003",
+                      style: GoogleFonts.getFont('Varela Round',
                           textStyle: TextStyle(
                             fontSize: 14,
                             color: Colors.grey[800],
-                          )),),
+                          )),
                     ),
-
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text("Description: As an association activity of Department of Information Science & Engineering, under AISE a hands-on session was conducted on “STRING SIMILARITY-HAMMING & LEVENSHTEIN DISTANCE”. The hands-on session was about the introduction to String matching and how it was dealt in past and modern trend. String metrics are used heavily in information integration and are currently used in areas including fraud detection, fingerprint analysis, plagiarism detection, ontology merging, DNA analysis, RNA analysis, image analysis, evidence-based machine learning, database data deduplication, data mining, incremental search, data integration, malware detection, and semantic knowledge integrationBrief Introduction to Hamming distance with code was explained by Shrama Madival and Levenshtein Distance was explained with the various applications like Spell Checkers, Correction Systems for optical character recognition, Software to assist natural language, Translation memory by Jayashree K.R.This event was supported by Prof. Sudarshan K, Head of the department, ISE . The Hands-on session was conducted by Students of 2nd Year ISE Jayashree K.R, Shrama Madival under the guidance of Prof.Sowmya, Assistant professor, ISE organised the event on 07/07/2023. All students of 4th SEM ISE took active participation in the event.",style: GoogleFonts.getFont('Varela Round',
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      "Description: As an association activity of Department of Information Science & Engineering, under AISE a hands-on session was conducted on “STRING SIMILARITY-HAMMING & LEVENSHTEIN DISTANCE”. The hands-on session was about the introduction to String matching and how it was dealt in past and modern trend. String metrics are used heavily in information integration and are currently used in areas including fraud detection, fingerprint analysis, plagiarism detection, ontology merging, DNA analysis, RNA analysis, image analysis, evidence-based machine learning, database data deduplication, data mining, incremental search, data integration, malware detection, and semantic knowledge integrationBrief Introduction to Hamming distance with code was explained by Shrama Madival and Levenshtein Distance was explained with the various applications like Spell Checkers, Correction Systems for optical character recognition, Software to assist natural language, Translation memory by Jayashree K.R.This event was supported by Prof. Sudarshan K, Head of the department, ISE . The Hands-on session was conducted by Students of 2nd Year ISE Jayashree K.R, Shrama Madival under the guidance of Prof.Sowmya, Assistant professor, ISE organised the event on 07/07/2023. All students of 4th SEM ISE took active participation in the event.",
+                      style: GoogleFonts.getFont('Varela Round',
                           textStyle: TextStyle(
                             fontSize: 16,
                             color: Colors.grey[800],
-                          )),textAlign: TextAlign.justify,
-                      ),
-                    )
-                  ],
-                ),
-              );
-            },
-          );
-        },
+                          )),
+                      textAlign: TextAlign.justify,
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        );
+      },
       child: Card(
         // Set the shape of the card using a rounded rectangle border with a 8 pixel radius
         shape: RoundedRectangleBorder(
@@ -477,14 +574,14 @@ class _NewsCardState extends State<NewsCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-
-
-            Image(image: CachedNetworkImageProvider(
-              "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
-              errorListener: () => const Icon(Icons.error),
-            ),
+            Image(
+              image: CachedNetworkImageProvider(
+                "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
+                errorListener: () => const Icon(Icons.error),
+              ),
               width: double.infinity,
-              fit: BoxFit.cover,),
+              fit: BoxFit.cover,
+            ),
 
             // Add a container with padding that contains the card's title, text, and buttons
             Container(
@@ -632,7 +729,6 @@ class contactcards extends StatelessWidget {
   }
 }
 
-
 class gallerycard extends StatefulWidget {
   const gallerycard({Key? key}) : super(key: key);
 
@@ -643,37 +739,44 @@ class gallerycard extends StatefulWidget {
 class _gallerycardState extends State<gallerycard> {
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
-      onTap: (){
-        showModal( context: context,
-            builder: (BuildContext context) { return Center(
-                child:  Container(
-                  decoration:BoxDecoration(
-                      border: Border.all(), borderRadius: BorderRadius.circular(5)),
-                  child: Image(image: CachedNetworkImageProvider(
-            "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
-                    errorListener: () => const Icon(Icons.error),
-            ),
-              width: double.infinity,
-              fit: BoxFit.cover,),
-              )
-              , );
-            });},
+    return GestureDetector(
+      onTap: () {
+        showModal(
+            context: context,
+            builder: (BuildContext context) {
+              return Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Image(
+                    image: CachedNetworkImageProvider(
+                      "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
+                      errorListener: () => const Icon(Icons.error),
+                    ),
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            });
+      },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          decoration:BoxDecoration(
+          decoration: BoxDecoration(
               border: Border.all(), borderRadius: BorderRadius.circular(5)),
-          child:Image(image: CachedNetworkImageProvider(
-            "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
-            errorListener: () => const Icon(Icons.error),
+          child: Image(
+            image: CachedNetworkImageProvider(
+              "https://srinivasuniverstrg.blob.core.windows.net/sit-news-images/photoICRICS23.JPG",
+              errorListener: () => const Icon(Icons.error),
+            ),
+            width: MediaQuery.of(context).size.width / 3 - 32,
+            height: MediaQuery.of(context).size.width / 3 - 32,
+            fit: BoxFit.cover,
           ),
-            width: MediaQuery.of(context).size.width/3-32,
-            height: MediaQuery.of(context).size.width/3-32,
-            fit: BoxFit.cover,),
         ),
       ),
     );
   }
 }
-
