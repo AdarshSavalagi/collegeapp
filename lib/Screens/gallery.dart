@@ -18,9 +18,9 @@ class _galleryScreenState extends State<galleryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: APPBAR(title: "Gallery"),
+      appBar: const APPBAR(title: "Gallery"),
       body: ListView(
-        children: [
+        children: const [
           BlockOdd(),
           BlockEven(),
           BlockOdd(),
